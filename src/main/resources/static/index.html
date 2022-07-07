@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Shoe Commerce</title>
+</head>
+
+<body>
+	<div id="root"></div>
+</body>
+<script>
+    fetch('/shoes').then(res => res.json()).then((shoes) => {
+    	
+    	
+        document.getElementById('root').innerHTML = (shoes.map(shoe => {
+            return `<p>${shoe.id}, ${shoe.name}, ${shoe.category}, ${shoe.price}</p>`
+        })).join("\t")
+        
+        
+    })
+</script>
+
+</html>
